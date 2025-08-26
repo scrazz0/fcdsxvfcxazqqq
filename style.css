@@ -1,0 +1,184 @@
+:root {
+  --primary-blue: #5865F2;
+  --bg-light: #FFFFFF;
+  --bg-dark: #36393F;
+  --text-light: #000000;
+  --text-dark: #FFFFFF;
+  --secondary: #B9BBBE;
+  --green: #00FF00;
+}
+
+body.light-theme {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+body.dark-theme {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: var(--primary-blue);
+  color: white;
+}
+
+.logo .skr {
+  color: var(--primary-blue);
+  background: white;
+  padding: 5px;
+  border-radius: 5px;
+  animation: bounce 1s infinite;
+}
+
+.logo .baraholka {
+  color: white;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.sidebar {
+  width: 200px;
+  float: left;
+  background: var(--secondary);
+  padding: 10px;
+  height: 100vh;
+  position: fixed;
+}
+
+.sidebar li {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.sidebar li:hover {
+  background: var(--primary-blue);
+  color: white;
+}
+
+main {
+  margin-left: 220px;
+  padding: 20px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input, select, button {
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background: var(--secondary);
+  color: inherit;
+}
+
+button {
+  background: var(--primary-blue);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+#items-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.item-card {
+  background: var(--bg-light);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s;
+  cursor: pointer;
+}
+
+.item-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.item-card h3 {
+  padding: 10px;
+}
+
+.item-card .price {
+  padding: 0 10px;
+  font-weight: bold;
+}
+
+.item-card .city {
+  padding: 0 10px 10px;
+  color: var(--green);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: var(--bg-light);
+  padding: 20px;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 600px;
+  animation: slideIn 0.3s;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.hidden {
+  display: none !important;
+}
+
+#modal-photos {
+  display: flex;
+  overflow-x: auto;
+}
+
+#modal-photos img {
+  width: 200px;
+  margin-right: 10px;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+}
+
+#pending-list .item-card button {
+  margin: 10px;
+}

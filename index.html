@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>СКР БАРАХОЛКА</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body class="light-theme">
+  <header>
+    <div class="logo">
+      <span class="skr">СКР</span> <span class="baraholka">БАРАХОЛКА</span>
+    </div>
+    <div class="controls">
+      <button id="theme-toggle">🌙</button>
+      <button id="lang-toggle">UKR</button>
+      <button id="create-btn">Создать объявление</button>
+      <a href="/admin.html">Админ</a>
+    </div>
+  </header>
+  <div class="sidebar">
+    <h3>Категории</h3>
+    <ul>
+      <li data-category="all">Все</li>
+      <li data-category="electronics">Электроника</li>
+      <li data-category="jewelry">Украшения</li>
+      <li data-category="clothing">Одежда</li>
+      <li data-category="vapes">Поды/Вейпы</li>
+    </ul>
+  </div>
+  <main>
+    <div class="filters">
+      <input id="search" type="text" placeholder="Поиск...">
+      <input id="min-price" type="number" placeholder="Мин цена">
+      <input id="max-price" type="number" placeholder="Макс цена">
+      <select id="city-filter">
+        <option value="">Все города</option>
+        <option value="Киев">Киев</option>
+        <option value="Одесса">Одесса</option>
+        <option value="Харьков">Харьков</option>
+        <option value="Львов">Львов</option>
+        <!-- Добавьте больше городов -->
+      </select>
+      <button id="apply-filters">Применить</button>
+    </div>
+    <div id="items-list"></div>
+  </main>
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="modal-photos"></div>
+      <h2 id="modal-title"></h2>
+      <p id="modal-description"></p>
+      <p id="modal-price"></p>
+      <p id="modal-city"></p>
+      <form id="message-form">
+        <textarea placeholder="Сообщение продавцу"></textarea>
+        <button type="submit">Отправить</button>
+      </form>
+    </div>
+  </div>
+  <div id="create-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <form id="create-form">
+        <input type="text" name="title" placeholder="Название">
+        <select name="category">
+          <option value="electronics">Электроника</option>
+          <option value="jewelry">Украшения</option>
+          <option value="clothing">Одежда</option>
+          <option value="vapes">Поды/Вейпы</option>
+        </select>
+        <input type="number" name="price" placeholder="Цена в грн">
+        <textarea name="description" placeholder="Описание"></textarea>
+        <select name="city">
+          <option value="Киев">Киев</option>
+          <option value="Одесса">Одесса</option>
+          <!-- Добавьте больше -->
+        </select>
+        <input type="file" name="photos" multiple accept="image/*">
+        <button type="submit">Отправить на модерацию</button>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
